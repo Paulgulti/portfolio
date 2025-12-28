@@ -1,38 +1,51 @@
 'use client'
-import { Mail, MapPin, Send } from 'lucide-react';
+import { Loader2Icon, Mail, MapPin, Send } from 'lucide-react';
 import { RevealSection } from './RevealSection';
 import { useState } from 'react';
 import { toast } from "sonner"
-import { useToast } from './useToast';
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
 export function ContactSection() {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [error, setError] = useState<null | string>(null)
     const [loading, setLoading] = useState<boolean>(false)
-    // const { toast } = useToast();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true)
-        if (formData.name === '' || formData.email === '' || formData.message === '') {
-            setError('Please fill out all fields before submitting your message');
+        try {
+            if (formData.name === '' || formData.email === '' || formData.message === '') {
+                setError('Please fill out all fields before submitting your message');
+                setLoading(false)
+                return
+            }
+            setFormData({ name: formData.name, email: formData.email, message: formData.message });
+            const res = await fetch(`${baseUrl}/api`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ name: formData.name, email: formData.email, message: formData.message })
+            })
+
+            if (!res.ok) {
+                throw new Error(res.statusText)
+            }
+            setFormData({
+                name: "",
+                email: "",
+                message: "",
+            })
+            toast("Message submitted successfully", {
+                description: "I Will get back to you shortly."
+            });
+            
+        } catch (error) {
+            setError(error instanceof Error ? error.message : 'Unknown error')
+        } finally {
             setLoading(false)
-            return
         }
-        setFormData({ name: formData.name, email: formData.email, message: formData.message });
-        await fetch('http://localhost:3000/api', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({name: formData.name, email: formData.email, message: formData.message})
-        })
-        // toast({
-        //     title: "Message sent!",
-        //     description: "Thanks for reaching out. I'll get back to you soon.",
-        // });
-        console.log('submitted');
-        setLoading(false)
     };
 
     return (
@@ -134,9 +147,14 @@ export function ContactSection() {
                                 type="submit"
                                 disabled={loading}
                                 className="w-full px-8 py-2 md:py-4 rounded-lg bg-[#d86513d7] hover:bg-orange-500/70 text-primary-foreground font-medium hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 group hover:cursor-pointer"
-                            > 
-                                {loading ? 'Sending Message' : 'Send Message'}
-                                <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            >
+                                {loading ? 'Submitting' : 'Submit'}
+                                {loading ? (
+                                    <Loader2Icon className='animate-spin'/>
+                                ) : (
+                                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                )}
+
                             </button>
                         </form>
                     </RevealSection>

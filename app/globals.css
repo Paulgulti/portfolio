@@ -331,3 +331,23 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+@theme {
+  /* --anmate-spin: spin 10s ease-in-out infinite; */
+  @keyframes spin {
+  from { translate: 0; }
+  to { translate: -100%; }
+}
+}

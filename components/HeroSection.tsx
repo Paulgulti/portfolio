@@ -1,26 +1,13 @@
-import { ArrowDown, Github, Linkedin, Twitter } from 'lucide-react';
+import { ArrowDown, Download, Github, Linkedin, Twitter } from 'lucide-react';
 import { RevealSection } from './RevealSection';
 import Link from 'next/link';
 
 export function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
-      {/* Animated background elements */}
-      {/* <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
-      </div> */}
-
       <div className="top-8 container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <RevealSection delay={0.1}>
-            {/* <h1 className="font-display text-[20px] md:text-6xl lg:text-7xl font-bold mb-2 md:mb-6 leading-tight">
-              Building digital
-              <br />
-              <span className="gradient-text">experiences</span> that
-              <br />
-              matter
-            </h1> */}
             <h1 className="font-display text-[20px]  md:text-3xl font-bold mb-2 md:mb-6 leading-tight">Hello, I'm Paul Gulti</h1>
           </RevealSection>
           <RevealSection>
@@ -37,19 +24,21 @@ export function HeroSection() {
           </RevealSection>
 
           <RevealSection delay={0.3}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 md:mb-10">
-              <a
+            <div className="group flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 md:mb-10">
+              <Link
                 href="#projects"
                 className="px-4 py-2 md:px-8 md:py-3 rounded-lg bg-[#d86513d7] hover:bg-orange-500/70 text-primary-foreground font-medium hover:opacity-90 transition-all duration-300 hover:scale-105"
               >
                 View My Work
-              </a>
-              <a
-                href="#contact"
-                className="px-4 py-2 md:px-8 md:py-3 rounded-lg border border-border text-white font-medium hover:bg-secondary transition-all duration-300 hover:scale-105"
+              </Link>
+              <Link
+                href="paul_cv.pdf"
+                download
+                className="flex gap-2 px-4 py-2 md:px-8 md:py-3 rounded-lg border border-border text-white font-medium hover:bg-secondary transition-all duration-300 hover:scale-105"
               >
-                Get In Touch
-              </a>
+                Download CV
+                <Download className='group-hover:text-[#d86513d7]'/>
+              </Link>
             </div>
           </RevealSection>
 
