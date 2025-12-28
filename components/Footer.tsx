@@ -15,7 +15,7 @@ export function Footer() {
                             href="https://github.com/paulgulti"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-orange-500/60 hover:text-orange-500 transition-colors"
+                            className="text-muted-foreground hover:text-[#ff6900] transition-colors"
                         >
                             <Github className="w-5 h-5" />
                         </Link>
@@ -23,7 +23,7 @@ export function Footer() {
                             href="https://linkedin.com/paulgulti"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-orange-500/60 hover:text-orange-500 transition-colors"
+                            className="text-muted-foreground hover:text-[#ff6900] transition-colors"
                         >
                             <Linkedin className="w-5 h-5" />
                         </Link>
@@ -31,7 +31,7 @@ export function Footer() {
                             href="https://twitter.com/paulma00s"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-orange-500/60 hover:text-orange-500 transition-colors"
+                            className="text-muted-foreground hover:text-[#ff6900] transition-colors"
                         >
                             <Twitter className="w-5 h-5" />
                         </Link>

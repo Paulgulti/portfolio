@@ -15,8 +15,8 @@ const Header = () => {
       label: 'Projects'
     },
     {
-      href: 'testimonials',
-      label: 'Testimonials'
+      href: 'certificates',
+      label: 'Certificates'
     },
     {
       href: 'contact',
@@ -42,8 +42,8 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="font-display text-xl font-bold text-orange-500/50">
-            {'<Dev />'}
+          <Link href="/" className="font-display text-xl font-bold text-[#d86513d7]">
+            {'<Paul />'}
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -51,7 +51,7 @@ const Header = () => {
               <a
                 key={link.href}
                 href={`#${link.href}`}
-                className="text-sm text-muted-foreground hover:text-orange-400 transition-colors duration-300"
+                className="text-sm text-muted-foreground hover:text-[#ff6900] transition-colors duration-300"
               >
                 {link.label}
               </a>
@@ -60,7 +60,7 @@ const Header = () => {
 
           <a
             href="#contact"
-            className="px-4 py-2 rounded-lg bg-orange-400 hover:bg-orange-500/70  text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
+            className="px-4 py-2 rounded-lg bg-[#d86513d7] hover:bg-orange-500/70  text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
           >
             Let's Talk
           </a>

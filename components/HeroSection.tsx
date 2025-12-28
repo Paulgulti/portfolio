@@ -21,10 +21,10 @@ export function HeroSection() {
               <br />
               matter
             </h1> */}
-            <h1 className="font-display text-[20px] md:text-3xl font-bold mb-2 md:mb-6 leading-tight">Hello, I'm Paul Gulti</h1>
+            <h1 className="font-display text-[20px]  md:text-3xl font-bold mb-2 md:mb-6 leading-tight">Hello, I'm Paul Gulti</h1>
           </RevealSection>
           <RevealSection>
-            <p className="font-display text-primary text-sm md:text-base mb-4  tracking-wider">
+            <p className="font-display text-[#d86513d7]  text-sm md:text-base mb-4  tracking-wider">
               FULL STACK DEVELOPER
             </p>
           </RevealSection>
@@ -40,13 +40,13 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 md:mb-10">
               <a
                 href="#projects"
-                className="px-4 py-2 md:px-8 md:py-3 rounded-lg bg-orange-400 hover:bg-orange-500/80 text-primary-foreground font-medium hover:opacity-90 transition-all duration-300 hover:scale-105"
+                className="px-4 py-2 md:px-8 md:py-3 rounded-lg bg-[#d86513d7] hover:bg-orange-500/70 text-primary-foreground font-medium hover:opacity-90 transition-all duration-300 hover:scale-105"
               >
                 View My Work
               </a>
               <a
                 href="#contact"
-                className="px-4 py-2 md:px-8 md:py-3 rounded-lg border border-border text-foreground font-medium hover:bg-secondary transition-all duration-300 hover:scale-105"
+                className="px-4 py-2 md:px-8 md:py-3 rounded-lg border border-border text-white font-medium hover:bg-secondary transition-all duration-300 hover:scale-105"
               >
                 Get In Touch
               </a>
@@ -59,7 +59,7 @@ export function HeroSection() {
                 href="https://github.com/paulgulti"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors duration-300 text-orange-500/60 hover:text-orange-500"
+                className="transition-colors duration-300 text-muted-foreground hover:text-[#d86513d7]"
               >
                 <Github className="w-6 h-6" />
               </Link>
@@ -67,7 +67,7 @@ export function HeroSection() {
                 href="https://linkedin.com/paulgulti"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors duration-300 text-orange-500/60 hover:text-orange-500"
+                className="transition-colors duration-300 text-muted-foreground hover:text-[#d86513d7]"
               >
                 <Linkedin className="w-6 h-6" />
               </Link>
@@ -75,7 +75,7 @@ export function HeroSection() {
                 href="https://twitter.com/paulma00s"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors duration-300 text-orange-500/60 hover:text-orange-500"
+                className="transition-colors duration-300 text-muted-foreground hover:text-[#d86513d7]"
               >
                 <Twitter className="w-6 h-6" />
               </Link>
@@ -85,7 +85,7 @@ export function HeroSection() {
       </div>
 
       <div className="absolute bottom-3 md:bottom-8 left-1/2 -translate-x-1/2 animate-float">
-        <ArrowDown className="w-6 h-6  text-orange-500/30  animate-bounce" />
+        <ArrowDown className="w-6 h-6  text-[#d86513d7]  animate-bounce" />
       </div>
     </section>
   );

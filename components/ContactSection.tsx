@@ -7,15 +7,32 @@ import { useToast } from './useToast';
 
 export function ContactSection() {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const [error, setError] = useState<null | string>(null)
+    const [loading, setLoading] = useState<boolean>(false)
     // const { toast } = useToast();
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setLoading(true)
+        if (formData.name === '' || formData.email === '' || formData.message === '') {
+            setError('Please fill out all fields before submitting your message');
+            setLoading(false)
+            return
+        }
+        setFormData({ name: formData.name, email: formData.email, message: formData.message });
+        await fetch('http://localhost:3000/api', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({name: formData.name, email: formData.email, message: formData.message})
+        })
         // toast({
         //     title: "Message sent!",
         //     description: "Thanks for reaching out. I'll get back to you soon.",
         // });
-        setFormData({ name: '', email: '', message: '' });
+        console.log('submitted');
+        setLoading(false)
     };
 
     return (
@@ -42,7 +59,7 @@ export function ContactSection() {
                                 </div>
                                 <div>
                                     <h3 className="font-display font-semibold mb-1">Email</h3>
-                                    <p className="text-muted-foreground">hello@developer.com</p>
+                                    <p className="text-muted-foreground">paulgulti20@gmail.com</p>
                                 </div>
                             </div>
 
@@ -52,7 +69,7 @@ export function ContactSection() {
                                 </div>
                                 <div>
                                     <h3 className="font-display font-semibold mb-1">Location</h3>
-                                    <p className="text-muted-foreground">San Francisco, CA</p>
+                                    <p className="text-muted-foreground">Dire Dawa, Ethiopia</p>
                                 </div>
                             </div>
 
@@ -112,12 +129,13 @@ export function ContactSection() {
                                     placeholder="Tell me about your project..."
                                 />
                             </div>
-
+                            <p className='text-red-500 text-sm text-center'>{error}</p>
                             <button
                                 type="submit"
-                                className="w-full px-8 py-2 md:py-4 rounded-lg bg-orange-400 hover:bg-orange-500/70 text-primary-foreground font-medium hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 group hover:cursor-pointer"
-                            >
-                                Send Message
+                                disabled={loading}
+                                className="w-full px-8 py-2 md:py-4 rounded-lg bg-[#d86513d7] hover:bg-orange-500/70 text-primary-foreground font-medium hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 group hover:cursor-pointer"
+                            > 
+                                {loading ? 'Sending Message' : 'Send Message'}
                                 <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </form>

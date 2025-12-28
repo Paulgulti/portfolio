@@ -44,7 +44,7 @@ const Certificates = () => {
     }
 
     return (
-        <section id="projects" className=" py-10 md:py-20 ">
+        <section id="certificates" className=" py-10 md:py-20 ">
             <div className="container mx-auto px-6">
                 <div className='grid grid-cols-1 md:grid-cols-2 md:items-center'>
                     <RevealSection delay={0.1}>
@@ -69,10 +69,10 @@ const Certificates = () => {
                         <div className='relative flex items-center justify-center'>
                             <CardFlip certificateIndex={certificateIndex} certificates={certificates} />
                             <div className='absolute left-0 lg:left-10 flex gap-2'>
-                                <ArrowBigLeft onClick={showPrevCertificate} className='cursor-pointer text-orange-400 hover:text-orange-500/60' />
+                                <ArrowBigLeft onClick={showPrevCertificate} className='cursor-pointer text-[#d86513d7] hover:text-orange-500/70' />
                             </div>
                             <div className='absolute right-0 lg:right-10 flex gap-2'>
-                                <ArrowBigRight onClick={showNextCertificate} className='cursor-pointer text-orange-400 hover:text-orange-500/60' />
+                                <ArrowBigRight onClick={showNextCertificate} className='cursor-pointer text-[#d86513d7] hover:text-orange-500/70' />
                             </div>
                         </div>
                     </RevealSection>
